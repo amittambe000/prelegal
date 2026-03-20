@@ -78,6 +78,7 @@ coverage/
 .DS_Store
 *.sublime-project
 *.sublime-workspace
+.claude/
 
 # OS
 .DS_Store
