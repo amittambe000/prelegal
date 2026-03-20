@@ -1,0 +1,98 @@
+{
+  "templates": [
+    {
+      "name": "AI Addendum",
+      "description": "Addendum for AI-powered services and data processing",
+      "filename": "AI-Addendum.md",
+      "source_repo": "AI-Addendum",
+      "source_url": "https://github.com/CommonPaper/AI-Addendum",
+      "last_updated": "2026-03-20T19:34:29.986917"
+    },
+    {
+      "name": "Business Associate Agreement",
+      "description": "HIPAA-compliant business associate agreement for healthcare data",
+      "filename": "BAA.md",
+      "source_repo": "BAA",
+      "source_url": "https://github.com/CommonPaper/BAA",
+      "last_updated": "2026-03-20T19:34:29.986938"
+    },
+    {
+      "name": "Cloud Service Agreement",
+      "description": "Comprehensive cloud service agreement for SaaS providers",
+      "filename": "CSA.md",
+      "source_repo": "CSA",
+      "source_url": "https://github.com/CommonPaper/CSA",
+      "last_updated": "2026-03-20T19:34:29.986950"
+    },
+    {
+      "name": "Data Processing Agreement",
+      "description": "GDPR-compliant data processing agreement",
+      "filename": "DPA.md",
+      "source_repo": "DPA",
+      "source_url": "https://github.com/CommonPaper/DPA",
+      "last_updated": "2026-03-20T19:34:29.986969"
+    },
+    {
+      "name": "Design Partner Agreement",
+      "description": "Agreement for design partnership and collaboration",
+      "filename": "Design-Partner-Agreement.md",
+      "source_repo": "Design-Partner-Agreement",
+      "source_url": "https://github.com/CommonPaper/Design-Partner-Agreement",
+      "last_updated": "2026-03-20T19:34:29.986960"
+    },
+    {
+      "name": "Mutual Non-Disclosure Agreement",
+      "description": "Two-way non-disclosure agreement for confidential information",
+      "filename": "Mutual-NDA.md",
+      "source_repo": "Mutual-NDA",
+      "source_url": "https://github.com/CommonPaper/Mutual-NDA",
+      "last_updated": "2026-03-20T19:34:29.986978"
+    },
+    {
+      "name": "Partnership Agreement",
+      "description": "Strategic partnership agreement between organizations",
+      "filename": "Partnership-Agreement.md",
+      "source_repo": "Partnership-Agreement",
+      "source_url": "https://github.com/CommonPaper/Partnership-Agreement",
+      "last_updated": "2026-03-20T19:34:29.986986"
+    },
+    {
+      "name": "Pilot Agreement",
+      "description": "Agreement for pilot programs and trial implementations",
+      "filename": "Pilot-Agreement.md",
+      "source_repo": "Pilot-Agreement",
+      "source_url": "https://github.com/CommonPaper/Pilot-Agreement",
+      "last_updated": "2026-03-20T19:34:29.986994"
+    },
+    {
+      "name": "Professional Services Agreement",
+      "description": "Professional services agreement for consulting and development",
+      "filename": "PSA.md",
+      "source_repo": "PSA",
+      "source_url": "https://github.com/CommonPaper/PSA",
+      "last_updated": "2026-03-20T19:34:29.987002"
+    },
+    {
+      "name": "Service Level Agreement",
+      "description": "Service level agreement defining performance commitments",
+      "filename": "SLA.md",
+      "source_repo": "SLA",
+      "source_url": "https://github.com/CommonPaper/SLA",
+      "last_updated": "2026-03-20T19:34:29.987010"
+    },
+    {
+      "name": "Software License Agreement",
+      "description": "Software licensing agreement for commercial use",
+      "filename": "Software-License-Agreement.md",
+      "source_repo": "Software-License-Agreement",
+      "source_url": "https://github.com/CommonPaper/Software-License-Agreement",
+      "last_updated": "2026-03-20T19:34:29.987018"
+    }
+  ],
+  "metadata": {
+    "fetched_at": "2026-03-20T19:34:29.987020",
+    "source_organization": "CommonPaper",
+    "total_templates": 11,
+    "license": "CC BY 4.0"
+  }
+}
