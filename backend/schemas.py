@@ -54,3 +54,33 @@ class DocumentResponse(BaseModel):
 class MessageResponse(BaseModel):
     """Generic message response."""
     message: str
+
+
+class ChatMessage(BaseModel):
+    """Chat message."""
+    role: str  # "user" or "assistant"
+    content: str
+
+
+class ChatRequest(BaseModel):
+    """Chat message request."""
+    message: str
+    conversation_history: list[ChatMessage] = []
+
+
+class FieldConfidence(BaseModel):
+    """Field value with confidence score."""
+    value: str | None
+    confidence: float
+
+
+class ChatResponse(BaseModel):
+    """Chat message response with extracted fields."""
+    message: str
+    extracted_fields: dict[str, FieldConfidence]
+    is_complete: bool
+
+
+class GreetingResponse(BaseModel):
+    """Greeting response."""
+    greeting: str

@@ -65,4 +65,15 @@ export const api = {
     delete: (id: string) =>
       fetchAPI(`/documents/${id}`, { method: 'DELETE' }),
   },
+
+  chat: {
+    greeting: () =>
+      fetchAPI('/chat/greeting'),
+
+    sendMessage: (message: string, conversationHistory: Array<{ role: string; content: string }>) =>
+      fetchAPI('/chat/message', {
+        method: 'POST',
+        data: { message, conversation_history: conversationHistory },
+      }),
+  },
 };

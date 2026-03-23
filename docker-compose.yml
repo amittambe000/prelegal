@@ -7,5 +7,7 @@ services:
       - JWT_SECRET_KEY=${JWT_SECRET_KEY:-dev-secret-change-in-production-at-least-32-chars}
       - ALLOWED_ORIGINS=http://localhost:8000
       - DATABASE_URL=sqlite:///./prelegal.db
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+      - OPENROUTER_SSL_VERIFY=${OPENROUTER_SSL_VERIFY:-false}
     volumes:
       - ./data:/app/data

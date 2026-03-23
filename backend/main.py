@@ -12,9 +12,10 @@ from .models import User, Document
 from .schemas import (
     UserCreate, UserLogin, UserResponse,
     DocumentCreate, DocumentUpdate, DocumentResponse,
-    MessageResponse
+    MessageResponse, ChatRequest, ChatResponse, GreetingResponse, FieldConfidence
 )
 from .auth import hash_password, verify_password, create_jwt_token, get_current_user
+from .ai import extract_fields_from_conversation, generate_followup_message, get_greeting, MutualNDAFields
 
 
 @asynccontextmanager
@@ -39,6 +40,43 @@ app.add_middleware(
 def health_check():
     """Health check endpoint."""
     return {"status": "healthy", "version": "1.0.0"}
+
+
+@app.get("/api/chat/greeting", response_model=GreetingResponse)
+def get_chat_greeting():
+    """Get AI greeting for chat interface."""
+    greeting = get_greeting()
+    return {"greeting": greeting}
+
+
+@app.post("/api/chat/message", response_model=ChatResponse)
+def chat_message(request: ChatRequest):
+    """Process chat message and extract NDA fields."""
+    # Build full conversation including current message
+    messages = [{"role": msg.role, "content": msg.content} for msg in request.conversation_history]
+    messages.append({"role": "user", "content": request.message})
+
+    # Extract fields using AI
+    extracted_fields, confidence_scores = extract_fields_from_conversation(messages)
+
+    # Generate response based on what's missing/uncertain
+    all_field_names = list(MutualNDAFields.model_fields.keys())
+    response_message = generate_followup_message(extracted_fields, confidence_scores, all_field_names)
+
+    # Build response with field confidence
+    fields_with_confidence = {
+        k: FieldConfidence(value=v, confidence=confidence_scores.get(k, 0.0))
+        for k, v in extracted_fields.items()
+    }
+
+    # Check if all fields are complete
+    is_complete = all(name in extracted_fields and extracted_fields[name] for name in all_field_names)
+
+    return ChatResponse(
+        message=response_message,
+        extracted_fields=fields_with_confidence,
+        is_complete=is_complete
+    )
 
 
 @app.post("/api/auth/signup", response_model=UserResponse)
