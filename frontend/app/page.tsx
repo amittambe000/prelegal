@@ -5,8 +5,11 @@ import { NDAFormData } from '@/types/nda';
 import NDAForm from '@/components/NDAForm';
 import NDAPreview from '@/components/NDAPreview';
 import DownloadButton from '@/components/DownloadButton';
+import ChatInterface from '@/components/ChatInterface';
+import ModeToggle from '@/components/ModeToggle';
 
 export default function Home() {
+  const [mode, setMode] = useState<'chat' | 'form'>('chat');
   const [formData, setFormData] = useState<NDAFormData>({
     party1Name: '',
     party1Email: '',
@@ -30,9 +33,12 @@ export default function Home() {
               <h1 className="text-3xl font-bold">Prelegal</h1>
               <p className="text-blue-100 mt-1">Mutual NDA Generator</p>
             </div>
-            <div className="text-right">
-              <p className="text-sm text-blue-100">Production Ready</p>
-              <p className="text-xs text-blue-200">Powered by CommonPaper</p>
+            <div className="flex items-center space-x-6">
+              <ModeToggle mode={mode} onChange={setMode} />
+              <div className="text-right">
+                <p className="text-sm text-blue-100">Production Ready</p>
+                <p className="text-xs text-blue-200">Powered by CommonPaper</p>
+              </div>
             </div>
           </div>
         </div>
@@ -41,9 +47,13 @@ export default function Home() {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {/* Left Column - Form */}
+          {/* Left Column - Chat or Form */}
           <div className="space-y-6">
-            <NDAForm formData={formData} onChange={setFormData} />
+            {mode === 'chat' ? (
+              <ChatInterface formData={formData} onChange={setFormData} />
+            ) : (
+              <NDAForm formData={formData} onChange={setFormData} />
+            )}
             <div className="sticky bottom-4">
               <DownloadButton formData={formData} />
             </div>
