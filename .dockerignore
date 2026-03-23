@@ -1,0 +1,16 @@
+**/.git
+**/.gitignore
+**/node_modules
+**/.next
+**/out
+**/coverage
+**/__pycache__
+**/.pytest_cache
+**/*.pyc
+**/.env
+**/.venv
+**/dist
+**/build
+**/.DS_Store
+data/
+logs/
